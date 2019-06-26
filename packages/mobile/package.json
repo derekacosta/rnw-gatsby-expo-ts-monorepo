@@ -1,0 +1,78 @@
+{
+  "name": "@package/mobile",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./index.js",
+  "scripts": {
+    "postinstall": "node ./scripts/expo-yarn-workspaces/bin/expo-yarn-workspaces postinstall && node ./scripts/enable-rn-hooks.js",
+    "compile": "tsc -b",
+    "clean": "shx rm -rf dist/*",
+    "dev": "expo start",
+    "dev:android": "expo start --android",
+    "dev:ios": "expo start --ios",
+    "eject": "expo eject",
+    "format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
+    "lint": "tslint -p . --fix",
+    "test": "yarn run ts-test && yarn run jest",
+    "ts-test": "tsc --project . --noEmit --skipLibCheck && yarn lint"
+  },
+  "dependencies": {
+    "@package/common": "*",
+    "expo": "^32.0.6",
+    "react": "^16.9.0-alpha.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-svg-transformer": "^0.12.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.4",
+    "@types/react": "^16.8.16",
+    "@types/react-native": "^0.57.43",
+    "@types/react-test-renderer": "^16.8.1",
+    "babel-preset-expo": "^5.0.0",
+    "debug": "^4.1.1",
+    "eslint-plugin-typescript": "^0.14.0",
+    "find-yarn-workspace-root": "^1.2.1",
+    "jest": "^24.7.1",
+    "jest-expo": "^32.0.0",
+    "mkdirp": "^0.5.1",
+    "prettier": "^1.17.0",
+    "react-test-renderer": "^16.9.0-alpha.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-react-hooks": "^2.1.0",
+    "typescript": "^3.4.3",
+    "typescript-eslint-parser": "^22.0.0"
+  },
+  "standard": {
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+      "typescript"
+    ]
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/mobile/src/**/__tests__/**/*.ts?(x)",
+      "**/mobile/src/**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
+    }
+  }
+}

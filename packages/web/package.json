@@ -1,0 +1,65 @@
+{
+  "name": "@package/web",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "compile": "tsc -b",
+    "clean": "shx rm -rf public/*",
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
+    "lint": "tslint -p . --fix",
+    "test": "yarn run ts-test && yarn run jest",
+    "ts-test": "tsc --project . --noEmit --skipLibCheck && yarn lint"
+  },
+  "dependencies": {
+    "@package/common": "*",
+    "gatsby": "^2.3.16",
+    "gatsby-image": "^2.0.37",
+    "gatsby-plugin-manifest": "^2.0.28",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-react-native-web": "^2.0.0-beta.0",
+    "gatsby-plugin-react-svg": "^2.1.1",
+    "gatsby-plugin-sharp": "^2.0.32",
+    "gatsby-plugin-typescript": "^2.0.12",
+    "gatsby-transformer-sharp": "^2.1.17",
+    "react": "^16.9.0-alpha.0",
+    "react-dom": "^16.9.0-alpha.0",
+    "react-helmet": "^5.2.0",
+    "react-native-svg": "^9.4.0",
+    "react-native-web": "^0.11.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.4",
+    "@types/react": "^16.8.16",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-helmet": "^5.0.8",
+    "@types/react-test-renderer": "^16.8.1",
+    "babel-jest": "^24.7.1",
+    "babel-preset-gatsby": "^0.1.11",
+    "eslint-plugin-typescript": "^0.14.0",
+    "gatsby-plugin-tslint": "^0.0.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0",
+    "react-test-renderer": "^16.9.0-alpha.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-loader": "^3.5.4",
+    "tslint-react": "^4.0.0",
+    "tslint-react-hooks": "^2.1.0",
+    "typescript": "^3.4.3",
+    "typescript-eslint-parser": "^22.0.0"
+  },
+  "standard": {
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+      "typescript"
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "name": "@package/common",
+  "version": "0.0.1",
+  "private": true,
+  "main": "dist",
+  "scripts": {
+    "compile": "yarn tsc -b",
+    "clean": "shx rm -rf dist/* tsconfig.tsbuildinfo",
+    "format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
+    "lint": "tslint -p . --fix",
+    "test": "yarn run ts-test && yarn run jest",
+    "ts-test": "tsc --project . --noEmit --skipLibCheck && yarn lint"
+  },
+  "dependencies": {
+    "expo": "^32.0.6",
+    "immer": "^2.1.5",
+    "react": "^16.9.0-alpha.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-svg": "^9.4.0",
+    "react-native-web": "^0.11.2"
+  },
+  "devDependencies": {
+    "@types/expo": "^32.0.13",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.4",
+    "@types/react": "^16.8.16",
+    "@types/react-native": "^0.57.43",
+    "@types/react-test-renderer": "^16.8.1",
+    "babel-jest": "^24.7.1",
+    "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^24.7.1",
+    "jest-localstorage-mock": "^2.4.0",
+    "prettier": "^1.17.0",
+    "react-hooks-testing-library": "^0.5.0",
+    "react-native-expo-svg": "^1.0.1",
+    "react-test-renderer": "^16.9.0-alpha.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-react": "^4.0.0",
+    "tslint-react-hooks": "^2.1.0",
+    "typescript": "^3.4.3",
+    "typescript-eslint-parser": "^22.0.0"
+  },
+  "standard": {
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+      "typescript"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ],
+    "preset": "react-native-web",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/common/src/**/__tests__/**/*.ts?(x)",
+      "**/common/src/**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
+    },
+    "testPathIgnorePatterns": [
+      "node_modules",
+      ".cache",
+      "dist"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native|react-native-svg)/)"
+    ]
+  }
+}
